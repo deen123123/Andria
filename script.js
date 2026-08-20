@@ -3,36 +3,32 @@ const envelopeScreen = document.getElementById("envelopeScreen");
 const letterScreen = document.getElementById("letterScreen");
 const closeLetter = document.getElementById("closeLetter");
 const musicButton = document.getElementById("musicButton");
-const youtubePlayer = document.getElementById("youtubePlayer");
+const bgMusic = document.getElementById("bgMusic");
 
 let opened = false;
-let musicStarted = false;
 let musicPlaying = false;
 
-// Official YouTube music video ID for "Hey There Delilah".
-const videoId = "EbJtYqBYCV8";
-
-function startMusic() {
-  if (!musicStarted) {
-    youtubePlayer.innerHTML =
-      `<iframe
-        width="1"
-        height="1"
-        src="https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}"
-        title="Hey There Delilah"
-        allow="autoplay; encrypted-media"
-        frameborder="0">
-      </iframe>`;
-    musicStarted = true;
+function playMusic() {
+  bgMusic.play().then(() => {
     musicPlaying = true;
     musicButton.innerHTML = "♫ <span>Music playing</span>";
-  }
+  }).catch((err) => {
+    console.warn("Audio autoplay blocked or failed:", err);
+  });
 }
 
-function stopMusic() {
-  youtubePlayer.innerHTML = "";
+function pauseMusic() {
+  bgMusic.pause();
   musicPlaying = false;
   musicButton.innerHTML = "♫ <span>Play music</span>";
+}
+
+function toggleMusic() {
+  if (musicPlaying) {
+    pauseMusic();
+  } else {
+    playMusic();
+  }
 }
 
 function openLetter() {
@@ -40,9 +36,8 @@ function openLetter() {
   opened = true;
   envelope.classList.add("opening");
 
-  // Starting audio here is tied to the user's click, which works better
-  // with browser autoplay restrictions.
-  startMusic();
+  // Play music on click
+  playMusic();
 
   setTimeout(() => {
     envelopeScreen.classList.remove("active");
@@ -59,15 +54,9 @@ closeLetter.addEventListener("click", () => {
   opened = false;
 });
 
-musicButton.addEventListener("click", () => {
-  if (musicPlaying) {
-    stopMusic();
-  } else {
-    startMusic();
-  }
-});
+musicButton.addEventListener("click", toggleMusic);
 
-// Create falling cherry blossom petals.
+// Create falling cherry blossom petals
 const petals = document.querySelector(".petals");
 for (let i = 0; i < 34; i++) {
   const petal = document.createElement("span");
