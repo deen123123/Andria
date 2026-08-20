@@ -330,12 +330,12 @@ h2 {
 }
 
 .youtube-player {
-  position: fixed;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  left: -100px;
-  bottom: -100px;
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
 }
 
 @media (max-width: 520px) {
