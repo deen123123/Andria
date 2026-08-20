@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Special Birthday Letter 💌</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="scene">
+    <div class="overlay"></div>
+    <div class="stars"></div>
+    <div class="petals" aria-hidden="true"></div>
+
+    <!-- Envelope screen -->
+    <main id="envelopeScreen" class="screen active">
+      <button id="envelope" class="envelope" aria-label="Open your birthday letter">
+        <span class="envelope-back"></span>
+        <span class="letter-peek">
+          <span>For someone special</span>
+          <small>Open me 💌</small>
+        </span>
+        <span class="flap"></span>
+        <span class="front"></span>
+        <span class="seal">✿</span>
+      </button>
+      <p class="open-text">You have a special letter ✉️<br><span>Click the envelope to open it</span></p>
+    </main>
+
+    <!-- Letter screen -->
+    <main id="letterScreen" class="screen">
+      <article class="letter">
+        <button id="closeLetter" class="close" aria-label="Close letter">×</button>
+
+        <div class="letter-top">
+          <span class="tiny-note">A gift in a note</span>
+          <h1>Happy Birthday</h1>
+          <p class="subtitle">to someone who makes ordinary days a little brighter 🌸</p>
+        </div>
+
+        <div class="letter-content">
+          <p>Hey!</p>
+
+          <p>
+            I wanted to give you something a little different for your birthday.
+            So here’s a small letter, wrapped in a bit of starlight, just to wish
+            you an amazing day.
+          </p>
+
+          <p>
+            I hope this new year of your life brings you plenty of reasons to smile,
+            exciting memories, peaceful moments, and all the happiness you deserve.
+          </p>
+
+          <div class="message">
+            <p>And even when things feel far away,</p>
+            <p>remember that good moments can still find you.</p>
+            <p>Keep smiling, keep dreaming,</p>
+            <p>and keep being yourself.</p>
+          </div>
+
+          <p>
+            May your year be filled with new adventures, laughter, and beautiful
+            surprises waiting around the corner.
+          </p>
+
+          <p class="ending">
+            Anyway, I hope you have a really wonderful birthday. You deserve a day
+            filled with happiness, good people, and great memories.
+          </p>
+
+          <h2>Happy Birthday 🎂✨</h2>
+        </div>
+      </article>
+    </main>
+
+    <button id="musicButton" class="music-button" aria-label="Toggle music">
+      ♫ <span>Play music</span>
+    </button>
+
+    <div id="youtubePlayer" class="youtube-player"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
